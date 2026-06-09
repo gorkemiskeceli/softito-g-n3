@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h1>Spread Operator (Dağıtma)</h1>
+    </div>
+    <br>
+    <div>
+        <h3>Dizi Kopyalama Referans</h3>
+        <div>
+            <button id="btn-copy-ref">Referans Kopyalama(Orjinali etkiler)</button>
+            <button id="btn-copy-spread">Spread Kopyalama (güvenli)</button>
+        </div>
+    </div>
+    <br>
+    <div>
+        <span>Orjinal Dizimiz</span>
+        <div id="orig-arr">[]</div>
+    </div>
+    <br>
+    <div>
+        <span>Kopya Dizi</span>
+        <div id="copy-arr">[]</div>
+    </div>
+    <br>
+    <div>
+        <h3>2. Nesene birleştirme</h3>
+        <button id="btn-merge-obj">Nesneleri Birleştir</button><br>
+        <div id="merge-result"><br>
+            Nesne Birleştirilmedi
+        </div>
+    </div>
+
+    <script>
+        let orijinal = ['apple','microsoft'];
+
+        document.getElementById('orig-arr').innerText=JSON.stringify(orijinal);
+
+        document.getElementById('btn-copy-ref').addEventListener('click', ()=>{
+            orijinal = ['apple', 'microsoft'];
+            const kopya = orijinal;
+            kopya.push('nokia');
+            document.getElementById('orig-arr').innerText = JSON.stringify(orijinal);
+            document.getElementById('copy-arr').innerText = JSON.stringify(kopya);
+        })
+
+        document.getElementById('btn-copy-spread').addEventListener('click', ()=>{
+            orijinal = ['elma','armut'];
+            const kopya = [...orijinal];
+            kopya.push('kiraz');
+            document.getElementById('orig-arr').innerText = JSON.stringify(orijinal);
+            document.getElementById('copy-arr').innerText = JSON.stringify(kopya);
+        })
+
+        document.getElementById('btn-merge-obj').addEventListener('click', ()=>{
+            const varsayilan = {tema: 'koyu', dil: 'TR'};
+            const kullanici= {dil: 'EN'};
+            const sonNesne = {...varsayilan, ...kullanici};
+            document.getElementById('merge-result').innerHTML = `<div>Olusan Nesne: ${JSON.stringify(sonNesne)}</div>`
+        })
+
+    </script>
+    
+</body>
+</html>
