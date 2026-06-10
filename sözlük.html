@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Sözlük</title>
+  <style>
+    body { font-family: monospace; padding: 20px; background: #1e1e1e; color: #d4d4d4; }
+    h1 { color: #569cd6; }
+    h2 { color: #ce9178; margin-top: 30px; }
+    .kutu { background: #2d2d2d; padding: 15px; border-radius: 8px; margin-bottom: 10px; }
+    .kod { color: #dcdcaa; }
+    .output { color: #6a9955; margin-left: 20px; }
+    .aciklama { color: #9cdcfe; }
+  </style>
+</head>
+<body>
+  <h1>📘 JavaScript Sözlük</h1>
+
+  <div>
+    <h2>1. map()</h2>
+    <div class="kutu">
+      <div class="kod">const sayilar = [1, 2, 3, 4, 5];</div>
+      <div class="kod">const ikiKati = sayilar.map(sayi => sayi * 2);</div>
+      <div class="kod">console.log(ikiKati);</div>
+      <div class="output">Çıktı: [2, 4, 6, 8, 10]</div>
+    </div>
+    <div class="aciklama">→ Dizideki her elemanı işleyip yeni bir dizi döndürür.</div>
+  </div>
+
+  <div>
+    <h2>2. find()</h2>
+    <div class="kutu">
+      <div class="kod">const sayilar2 = [10, 20, 30, 40, 50];</div>
+      <div class="kod">const bulunan = sayilar2.find(sayi => sayi > 25);</div>
+      <div class="kod">console.log(bulunan);</div>
+      <div class="output">Çıktı: 30</div>
+    </div>
+    <div class="aciklama">→ Koşulu sağlayan İLK elemanı döndürür.</div>
+  </div>
+
+  <div>
+    <h2>3. reduce()</h2>
+    <div class="kutu">
+      <div class="kod">const sayilar3 = [1, 2, 3, 4, 5];</div>
+      <div class="kod">const toplam = sayilar3.reduce((acc, sayi) => acc + sayi, 0);</div>
+      <div class="kod">console.log(toplam);</div>
+      <div class="output">Çıktı: 15</div>
+    </div>
+    <div class="aciklama">→ Diziyi tek bir değere indirger (toplama, çarpma vb.).</div>
+  </div>
+
+  <div>
+    <h2>4. filter()</h2>
+    <div class="kutu">
+      <div class="kod">const sayilar4 = [5, 12, 8, 130, 44];</div>
+      <div class="kod">const buyukler = sayilar4.filter(sayi => sayi > 10);</div>
+      <div class="kod">console.log(buyukler);</div>
+      <div class="output">Çıktı: [12, 130, 44]</div>
+    </div>
+    <div class="aciklama">→ Koşulu sağlayan tüm elemanlarla yeni dizi oluşturur.</div>
+  </div>
+
+  <div>
+    <h2>5. some()</h2>
+    <div class="kutu">
+      <div class="kod">const sayilar5 = [1, 2, 3, 4, 5];</div>
+      <div class="kod">const varMi = sayilar5.some(sayi => sayi > 4);</div>
+      <div class="kod">console.log(varMi);</div>
+      <div class="output">Çıktı: true</div>
+    </div>
+    <div class="aciklama">→ Koşulu sağlayan en az bir eleman var mı? (true/false)</div>
+  </div>
+
+  <div>
+    <h2>6. every()</h2>
+    <div class="kutu">
+      <div class="kod">const sayilar6 = [2, 4, 6, 8, 10];</div>
+      <div class="kod">const hepsiCiftMi = sayilar6.every(sayi => sayi % 2 === 0);</div>
+      <div class="kod">console.log(hepsiCiftMi);</div>
+      <div class="output">Çıktı: true</div>
+    </div>
+    <div class="aciklama">→ Tüm elemanlar koşulu sağlıyor mu? (true/false)</div>
+  </div>
+
+  <div>
+    <h2>7. push()</h2>
+    <div class="kutu">
+      <div class="kod">const meyveler = ["elma", "armut"];</div>
+      <div class="kod">meyveler.push("çilek");</div>
+      <div class="kod">console.log(meyveler);</div>
+      <div class="output">Çıktı: ["elma", "armut", "çilek"]</div>
+    </div>
+    <div class="aciklama">→ Dizinin sonuna yeni eleman ekler.</div>
+  </div>
+
+  <div>
+    <h2>8. includes()</h2>
+    <div class="kutu">
+      <div class="kod">const renkler = ["kırmızı", "yeşil", "mavi"];</div>
+      <div class="kod">console.log(renkler.includes("yeşil"));</div>
+      <div class="output">Çıktı: true</div>
+    </div>
+    <div class="aciklama">→ Dizi/string belirtilen elemanı içeriyor mu? (true/false)</div>
+  </div>
+
+  <div>
+    <h2>9. toLowerCase()</h2>
+    <div class="kutu">
+      <div class="kod">const mesaj = "MERHABA DÜNYA";</div>
+      <div class="kod">console.log(mesaj.toLowerCase());</div>
+      <div class="output">Çıktı: "merhaba dünya"</div>
+    </div>
+    <div class="aciklama">→ String'deki tüm harfleri küçük yapar.</div>
+  </div>
+
+  <div>
+    <h2>10. toUpperCase()</h2>
+    <div class="kutu">
+      <div class="kod">const mesaj2 = "merhaba dünya";</div>
+      <div class="kod">console.log(mesaj2.toUpperCase());</div>
+      <div class="output">Çıktı: "MERHABA DÜNYA"</div>
+    </div>
+    <div class="aciklama">→ String'deki tüm harfleri büyük yapar.</div>
+  </div>
+
+  <div>
+    <h2>11. trim()</h2>
+    <div class="kutu">
+      <div class="kod">const bosluklu = "  JavaScript  öğreniyorum  ";</div>
+      <div class="kod">console.log(bosluklu.trim());</div>
+      <div class="output">Çıktı: "JavaScript  öğreniyorum"</div>
+    </div>
+    <div class="aciklama">→ String'in başındaki ve sonundaki boşlukları siler.</div>
+  </div>
+
+  <div>
+    <h2>12. split()</h2>
+    <div class="kutu">
+      <div class="kod">const cumle = "elma,armut,muz";</div>
+      <div class="kod">console.log(cumle.split(","));</div>
+      <div class="output">Çıktı: ["elma", "armut", "muz"]</div>
+    </div>
+    <div class="aciklama">→ String'i belirtilen ayraca göre diziye böler.</div>
+  </div>
+
+  <div>
+    <h2>13. join()</h2>
+    <div class="kutu">
+      <div class="kod">const kelimeler = ["JavaScript", "çok", "eğlenceli"];</div>
+      <div class="kod">console.log(kelimeler.join(" "));</div>
+      <div class="output">Çıktı: "JavaScript çok eğlenceli"</div>
+    </div>
+    <div class="aciklama">→ Diziyi belirtilen ayraçla birleştirip string yapar.</div>
+  </div>
+
+  <div>
+    <h2>14. parseFloat()</h2>
+    <div class="kutu">
+      <div class="kod">const fiyat = "49.99";</div>
+      <div class="kod">console.log(parseFloat(fiyat));</div>
+      <div class="output">Çıktı: 49.99</div>
+    </div>
+    <div class="aciklama">→ String'i ondalıklı sayıya çevirir.</div>
+  </div>
+
+  <div>
+    <h2>15. setInterval() & clearInterval()</h2>
+    <div class="kutu">
+      <div class="kod">let sayac = 0;</div>
+      <div class="kod">const interval = setInterval(() => {</div>
+      <div class="kod">&nbsp;&nbsp;sayac++;</div>
+      <div class="kod">&nbsp;&nbsp;console.log(sayac);</div>
+      <div class="kod">&nbsp;&nbsp;if (sayac === 3) clearInterval(interval);</div>
+      <div class="kod">}, 1000);</div>
+      <div class="output">Çıktı: 1, 2, 3 (1 sn aralıklarla)</div>
+    </div>
+    <div class="aciklama">→ setInterval() belirtilen sürede bir tekrarlayan işlem başlatır, clearInterval() durdurur.</div>
+  </div>
+
+  <script>
+    // ========== map ==========
+    // const sayilar = [1, 2, 3, 4, 5];
+    // const ikiKati = sayilar.map(sayi => sayi * 2);
+    // console.log(ikiKati);
+
+    // ========== find ==========
+    // const sayilar2 = [10, 20, 30, 40, 50];
+    // const bulunan = sayilar2.find(sayi => sayi > 25);
+    // console.log(bulunan);
+
+    // ========== reduce ==========
+    // const sayilar3 = [1, 2, 3, 4, 5];
+    // const toplam = sayilar3.reduce((acc, sayi) => acc + sayi, 0);
+    // console.log(toplam);
+
+    // ========== filter ==========
+    // const sayilar4 = [5, 12, 8, 130, 44];
+    // const buyukler = sayilar4.filter(sayi => sayi > 10);
+    // console.log(buyukler);
+
+    // ========== some ==========
+    // const sayilar5 = [1, 2, 3, 4, 5];
+    // const varMi = sayilar5.some(sayi => sayi > 4);
+    // console.log(varMi);
+
+    // ========== every ==========
+    // const sayilar6 = [2, 4, 6, 8, 10];
+    // const hepsiCiftMi = sayilar6.every(sayi => sayi % 2 === 0);
+    // console.log(hepsiCiftMi);
+
+    // ========== push ==========
+    // const meyveler = ["elma", "armut"];
+    // meyveler.push("çilek");
+    // console.log(meyveler);
+
+    // ========== includes ==========
+    // const renkler = ["kırmızı", "yeşil", "mavi"];
+    // console.log(renkler.includes("yeşil"));
+
+    // ========== toLowerCase ==========
+    // const mesaj = "MERHABA DÜNYA";
+    // console.log(mesaj.toLowerCase());
+
+    // ========== toUpperCase ==========
+    // const mesaj2 = "merhaba dünya";
+    // console.log(mesaj2.toUpperCase());
+
+    // ========== trim ==========
+    // const bosluklu = "  JavaScript  öğreniyorum  ";
+    // console.log(bosluklu.trim());
+
+    // ========== split ==========
+    // const cumle = "elma,armut,muz";
+    // console.log(cumle.split(","));
+
+    // ========== join ==========
+    // const kelimeler = ["JavaScript", "çok", "eğlenceli"];
+    // console.log(kelimeler.join(" "));
+
+    // ========== parseFloat ==========
+    // const fiyat = "49.99";
+    // console.log(parseFloat(fiyat));
+
+    // ========== setInterval / clearInterval ==========
+    // let sayac = 0;
+    // const interval = setInterval(() => {
+    //   sayac++;
+    //   console.log("setInterval:", sayac);
+    //   if (sayac === 3) clearInterval(interval);
+    // }, 1000);
+  </script>
+</body>
+</html>
