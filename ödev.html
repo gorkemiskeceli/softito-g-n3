@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Ödevi</title>
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
+  />
+</head>
+<body class="bg-gray-200 p-6">
+    <h1 class="text-2xl font-bold text-center mb-6">JavaScript Ödev Örnekleri</h1>
+
+    <!--let - const farkı -->
+    <div class="bg-white p-4 rounded-xl shadow mb-6">
+        <h2 class="font-bold text-lg mb-2">1. let ve const</h2>
+    
+        <button id="btn1" class="bg-blue-200 p-2 rounded mr-2">Skoru Arttır</button>
+        <button id="btn1b" class="bg-blue-200 p-2 rounded mr-2">Blok Kapsam</button>
+        <button id="btn1c" class="bg-blue-200 p-2 rounded">Eleman Ekle</button>
+    
+        <div id="cikti1" class="mt-2 p-2 border rounded">Skor: 0</div>
+      </div>
+
+       <!--Nesne (Object Literal)-->
+
+       <div class="bg-white p-4 rounded-xl shadow mb-6">
+        <h2 class="font-bold text-lg mb-2">2. Nesne Oluşturma</h2>
+    
+        <input id="inp2a" class="border p-1 mr-2" value="Apple" placeholder="Marka">
+        <input id="inp2b" class="border p-1 mr-2" value="50000" placeholder="Fiyat">
+        <button id="btn2" class="bg-blue-200 p-2 rounded">Oluştur</button>
+    
+        <div id="cikti2" class="mt-2 p-2 border rounded">Nesne oluşturulmadı</div>
+      </div>
+      
+      <!--Arrow Fonksiyon ve this-->
+      <div class="bg-white p-4 rounded-xl shadow mb-6">
+        <h2 class="font-bold text-lg mb-2">3. Arrow Fonksiyon</h2>
+    
+        <input id="inp3" class="border p-1 mr-2" value="5" type="number">
+        <button id="btn3" class="bg-blue-200 p-2 rounded mr-2">Karesini Al</button>
+        <button id="btn3b" class="bg-blue-200 p-2 rounded">Sayaç Başlat</button>
+    
+        <div id="cikti3" class="mt-2 p-2 border rounded">Sonuç: —</div>
+        <div id="cikti3b" class="mt-1 p-2 border rounded">Sayaç: 0</div>
+      </div>
+    
+      <script>
+        // let ve const
+        let skor1 = 0;
+        const dizi1 = ['elma'];
+    
+        document.getElementById('btn1').addEventListener('click', () => {
+          skor1 += 5;
+          document.getElementById('cikti1').innerText = 'Skor: ' + skor1;
+        });
+    
+        document.getElementById('btn1b').addEventListener('click', () => {
+          let deger = 'dış kapsam';
+          if (true) {
+            let deger = 'iç kapsam';
+          }
+          document.getElementById('cikti1').innerText = 'Blok kapsam: ' + deger;
+        });
+
+        document.getElementById('btn1c').addEventListener('click', () => {
+        dizi1.push('armut');
+        document.getElementById('cikti1').innerText = 'Dizi: ' + JSON.stringify(dizi1);
+        });
+
+        //nesne oluşturma
+
+        document.getElementById('btn2').addEventListener('click', () => {
+      const marka = document.getElementById('inp2a').value;
+      const fiyat = document.getElementById('inp2b').value;
+      const cihaz = {
+        marka,
+        fiyat,
+        bilgi() {
+          return this.marka + ' - ' + this.fiyat + ' TL';
+        }
+      };
+      document.getElementById('cikti2').innerHTML =
+        'Oluşan: ' + JSON.stringify({ marka: cihaz.marka, fiyat: cihaz.fiyat }) +
+        '<br>bilgi(): ' + cihaz.bilgi();
+    });
+
+        // arrow ve this
+
+        document.getElementById('btn3').addEventListener('click', () => {
+      const sayi = parseFloat(document.getElementById('inp3').value) || 0;
+      const karesi = x => x * x;
+      document.getElementById('cikti3').innerText = 'Karesi: ' + karesi(sayi);
+    });
+
+    let sayac3 = 0;
+    let interval3 = null;
+    document.getElementById('btn3b').addEventListener('click', () => {
+      if (interval3) clearInterval(interval3);
+      sayac3 = 0;
+      interval3 = setInterval(() => {
+        sayac3++;
+        document.getElementById('cikti3b').innerText = 'Sayaç: ' + sayac3;
+        if (sayac3 >= 5) clearInterval(interval3);
+      }, 500);
+    });
+
+        </script>
+</body>
+</html>
